@@ -1,8 +1,21 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  IonButton,
+} from '@ionic/react';
+
+import Echo from '../native/echoplugin';
 import './Home.css';
 
 const Home: React.FC = () => {
+  const callNative = async () =>{
+    const { value } = await Echo.echo({value: 'Hello World'});
+    console.log("Response from Native: ", value);
+  }
+
   return (
     <IonPage>
       <IonHeader>
@@ -16,7 +29,7 @@ const Home: React.FC = () => {
             <IonTitle size="large">Blank</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer />
+        <IonButton onClick={callNative}>Click and Log</IonButton>
       </IonContent>
     </IonPage>
   );
