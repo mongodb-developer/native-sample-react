@@ -15,4 +15,7 @@ end
 target 'App' do
   capacitor_pods
   # Add your Pods here
+
+  # RealmSwift https://github.com/realm/realm-cocoa
+  pod 'RealmSwift'
 end
