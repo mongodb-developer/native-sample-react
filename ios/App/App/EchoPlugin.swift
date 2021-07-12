@@ -36,6 +36,9 @@ public class EchoPlugin: CAPPlugin {
     let app = App(id: "ionictest-uicsb") // Replace YOUR_REALM_APP_ID with your Realm app ID
 
     @objc func login(_ call: CAPPluginCall) {
+        
+        print("Login started")
+
         // Log in anonymously.
         app.login(credentials: Credentials.anonymous) { (result) in
             // Remember to dispatch back to the main thread in completion handlers

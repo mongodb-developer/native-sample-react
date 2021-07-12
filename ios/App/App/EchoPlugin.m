@@ -9,5 +9,6 @@
 #import <Capacitor/Capacitor.h>
 
 CAP_PLUGIN(EchoPlugin, "Echo",
+    CAP_PLUGIN_METHOD(login, CAPPluginReturnPromise);
     CAP_PLUGIN_METHOD(echo, CAPPluginReturnPromise);
 )
