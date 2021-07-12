@@ -12,14 +12,19 @@ import Echo from '../native/echoplugin';
 import './Home.css';
 
 const Home: React.FC = () => {
-  const callNative = async () =>{
-    const { value } = await Echo.echo({value: 'Hello World'});
-    console.log("Response from Native: ", value);
+  const addTask = async () =>{
+    const { value } = await Echo.echo({value: 'Add Task'});
+    console.log("addTask Response from Native: ", value);
   }
 
   const loginToRealm = async () =>{
-    const { value }  = await Echo.login({value: 'Hello World'});
-    console.log("Response from Login: ", value);
+    console.log("Calling native Login");
+    const { value }  = await Echo.login({value: 'Login Realm'});
+    console.log("loginToRealm Response from Login: ", value);
+  }
+
+  const test = async () =>{
+    console.log("Test");
   }
 
 
@@ -39,7 +44,7 @@ const Home: React.FC = () => {
         <p><IonLabel>You need to 1st log in to Realm</IonLabel></p>
         <p><IonButton onClick={loginToRealm}>Login to Realm</IonButton></p>
 
-        <p><IonButton onClick={callNative}>Click and Log</IonButton></p>
+        <p><IonButton onClick={addTask}>Click and Create a Task</IonButton></p>
       </IonContent>
     </IonPage>
   );
